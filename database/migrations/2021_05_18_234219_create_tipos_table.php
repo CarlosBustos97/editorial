@@ -16,6 +16,7 @@ class CreateTiposTable extends Migration
         Schema::create('tipos', function (Blueprint $table) {
             $table->bigInteger('id')->usigned()->primary();
             $table->string('tipo');
+            
         });
     }
 

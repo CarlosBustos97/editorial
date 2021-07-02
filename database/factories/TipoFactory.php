@@ -22,7 +22,8 @@ class TipoFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'tipo' => $this->faker->name()
+            
         ];
     }
 }

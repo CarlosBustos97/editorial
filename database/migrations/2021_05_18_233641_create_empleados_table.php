@@ -19,7 +19,8 @@ class CreateEmpleadosTable extends Migration
             $table->string('apellido');
             $table->string('telefono');
             $table->bigInteger('sucursal_id')->usigned();
-            $table->foreign('sucursal_id')->references('id')->on('sucursals');
+            $table->foreign('sucursal_id')->references('id')->on('sucursal')->onDelete('cascade')->onUpdate('cascade');
+            // $table->timestamps();
         });
     }
 

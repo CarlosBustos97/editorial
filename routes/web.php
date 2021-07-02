@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RevistasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [RevistasController::class,'index']);
+Route::post('agregar', [RevistasController::class,'agregar'])->name('agregar');
+Route::delete('eliminar/{revista}', [RevistasController::class,'eliminar'])->name('eliminar');

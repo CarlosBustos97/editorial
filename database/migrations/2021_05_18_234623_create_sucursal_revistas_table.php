@@ -18,8 +18,8 @@ class CreateSucursalRevistasTable extends Migration
             $table->bigInteger('revista_id');
             $table->primary(['sucursal_id','revista_id']);//->usigned()->primary();
             //$table->integer('revista_id');//->usigned()->primary();
-            $table->foreign('sucursal_id')->references('id')->on('sucursals');
-            $table->foreign('revista_id')->references('id')->on('revistas');
+            $table->foreign('sucursal_id')->references('id')->on('sucursal')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('revista_id')->references('id')->on('revistas')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

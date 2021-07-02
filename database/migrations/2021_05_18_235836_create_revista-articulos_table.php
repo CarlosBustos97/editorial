@@ -18,8 +18,8 @@ class CreateRevistaArticulosTable extends Migration
             $table->bigInteger('revista_id');
             $table->primary(['articulo_id','revista_id']);
             //$table->integer('revista_id')->usigned()->primary();
-            $table->foreign('articulo_id')->references('id')->on('articulos');
-            $table->foreign('revista_id')->references('id')->on('revistas');
+            $table->foreign('articulo_id')->references('id')->on('articulos')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('revista_id')->references('id')->on('revistas')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

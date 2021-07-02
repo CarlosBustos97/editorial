@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\revista-articulo;
+use App\Models\revista_articulo;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class RevistaArticuloFactory extends Factory

@@ -18,8 +18,8 @@ class CreatePeriodistaArticulosTable extends Migration
             $table->bigInteger('periodista_id');
             $table->primary(['articulo_id','periodista_id']);
             //$table->integer('periodista_id')->usigned()->primary();
-            $table->foreign('articulo_id')->references('id')->on('articulos');
-            $table->foreign('periodista_id')->references('id')->on('periodistas');
+            $table->foreign('articulo_id')->references('id')->on('articulos')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('periodista_id')->references('id')->on('periodistas')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

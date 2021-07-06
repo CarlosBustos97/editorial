@@ -11,7 +11,7 @@ class RevistasController extends Controller
     public function index(){
         $revistas = Revistas::get();
         $tipos = Tipo::get();
-        return view('revistas',[
+        return view('home',[
             'revistas' => $revistas,
             'tipos' =>$tipos,
         ]);
@@ -25,17 +25,24 @@ class RevistasController extends Controller
 
     public function agregar(Request $request){
         $request->validate([
-            'name'=> ['required'],
-            'email'=> ['required', 'email', 'unique:users'],
-            'password' => ['required', 'min:8', ],
+            'titulo'=> ['required'],
+            'tipo'=> ['required'],
+            'fecha' => ['required'],
+            'ejemplares'=> ['required'],
+            'paginas'=> ['required'],
         ]);
-
-        Revista::create([
-            'titulo' => $request->name,
-            'tipo_id' => $request->email,
-            'fecha' => $request->email,
-            'num_paginas' => $request->email,
-            'num_ejemplares' => $request->email,
+        //echo "<pre>";
+        //print_r ($request->titulo . "+" . $request->tipo . "+" . $request->fecha . "+" . $request->paginas . "+" . $request->ejemplares);die;
+        $id_revista = Revistas::max('id')+1;
+        // echo "<pre>";
+        // echo ($id_revista);die;
+        Revistas::create([
+            'id' => $id_revista, 
+            'titulo' => $request->titulo,
+            'tipo_id' => $request->tipo,
+            'fecha' => $request->fecha,
+            'num_paginas' => $request->paginas,
+            'num_ejemplares' => $request->ejemplares,
         ]);
         return back();
     }
